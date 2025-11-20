@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<title>POS - Yasser Alayub</title>
+<link rel="stylesheet" href="css/style_light.css" id="theme-style">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<script src="js/lang.js" defer></script>
+<script src="js/storage.js" defer></script>
+<script src="js/app.js" defer></script>
+<style>
+body {
+    font-family: 'Tajawal', sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+#invoice-preview {
+    width: 40%;
+    background: #f7f7f7;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 2px solid #ddd;
+}
+#pos-panel {
+    width: 60%;
+    padding: 20px;
+}
+.product-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.product-btn {
+    padding: 18px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 8px;
+    background: #e2e2e2;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Invoice Preview -->
+<div id="invoice-preview">
+    <h2>معاينة الفاتورة</h2>
+    <div id="invoice-content">
+        <!-- Generated dynamically -->
+    </div>
+</div>
+
+<!-- POS Panel -->
+<div id="pos-panel">
+
+    <h2>نقطة البيع (POS)</h2>
+
+    <label>اسم العميل:</label>
+    <input id="customerName" type="text" placeholder="اكتب اسم العميل" />
+
+    <label>الموظف:</label>
+    <input id="employeeName" type="text" placeholder="اسم الموظف" />
+
+    <label>نقطة البيع:</label>
+    <input id="posNumber" type="number" value="1" />
+
+    <label>نسبة الضريبة (%):</label>
+    <input id="taxValue" type="number" value="15" />
+
+    <button onclick="previewInvoice()">معاينة الفاتورة</button>
+    <button onclick="printInvoice()">طباعة</button>
+
+    <h3>المنتجات</h3>
+    <div class="product-list" id="productList">
+        <!-- Buttons added from storage.js -->
+    </div>
+
+</div>
+
+</body>
+</html>
